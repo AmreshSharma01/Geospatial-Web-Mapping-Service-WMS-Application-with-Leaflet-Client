@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+    <title> WMS Requests-GetCapabilities and GetMap</title>
+    <!-- add header for the tab, as well as repeating image along top of page -->
+    <!-- changes to default text and colors -->
+    <style type="text/css">
+        body {
+            background: rgb(230, 238, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--HTML body section -->
+    <img src="./UCalgary-logo.svg" width="250" height="98" alt="University of Calgary">
+
+    <h2>University of Calgary</h2>
+    <h3>Department of Geomatics Engineering</h3>
+    <h4>ENGO 641 (Fall 2023): Design and Implementation of Geospatial Information Systems</h4>
+
+    <h1>ENGO 641 Assignment 3</h1>
+    <h4>Submitted By: AMRESH SHARMA(30233389) , ISSAC KWABENA AGYAPONG(30222691) and UJJAL BANIYA(30232571) </h2>
+
+    <hr>
+    <!-- add title -->
+    <br>
+    <h2> WMS service query</h2>
+    <h3> Assignment 3 Part I</h3>
+
+
+    <!-- description of the content -->
+    <p>This page provides access to data regarding the Major Road Networks, Wards and Schools of Calgary City.</p>
+    <p>
+        It provides access to the data stored on the course server via a WMS service using an associated MAP file.
+        <br><br>
+        <em>
+            <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+                target="_blank">WMS Request-GetCapabilities</a>
+        </em>
+        <br><br>
+        <!-- add table, headers and links to wms querys -->
+    <h3>WMS Request- GetMap</h3>
+    <table border="5" width="80%">
+
+        <tbody>
+            <tr>
+                <th width="30%"> Point features </th>
+                <!-- add image showing preview of all the content-->
+                <!-- this cell is for showing all the layers as image form  -->
+                <td rowspan="11">
+                    <p style="text-align:center;">
+                        <img
+                            src="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=wards,schools,roads&BBOX=-114.31580,%2050.84282,%20-113.85991,%2051.21237%20%20&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png">
+                    </p>
+                </td>
+
+            </tr>
+            <tr>
+                <td> <em>
+                        <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=schools&BBOX=-114.25111, 50.85933, -113.86775, 51.18697 &STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png"
+                            target="_blank">Schools</a>
+                    </em>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th> Line Features </th>
+
+            </tr>
+            <tr>
+                <td> <em>
+
+                        <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=roads&BBOX=-114.31580, 50.84282, -113.85991, 51.21237  &STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png"
+                            target="_blank">Roads</a>
+
+                      
+                    </em>
+                </td>
+            </tr>
+
+            <tr>
+                <th> Polygon Features </th>
+            </tr>
+            <tr>
+                <td> <em>
+                        <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=wards&BBOX=-114.31580, 50.84282, -113.85991, 51.21237  &STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png"
+                            target="_blank">Wards</a>
+                    </em>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+
+                    <h3>
+                        <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=wards,schools,roads&BBOX=-114.31580, 50.84282, -113.85991, 51.21237  &STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png"
+                            target="_blank">All Layers</a>
+                    </h3>
+                </th>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    </p>
+    <h4>WMS query examples:</h4>
+
+    <p>WMS Request-GetCapabilities Example</p>
+    <em>
+        <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+            target="_blank">http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</a>
+    </em>
+
+    <p>WMS Request-GetMap Example</p>
+    <h3> School Layer:</h3>
+    <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=schools&BBOX=-114.316,50.841,-113.858,51.212&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png
+    ">
+        http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=schools&BBOX=-114.316,50.841,-113.858,51.212&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png
+    </a> <br>
+
+    <h3> Road Layer: </h3>
+    <a href="http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=roads&BBOX=-114.31580,%2050.84282,%20-113.85991,%2051.21237%20%20&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png">
+        http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=roads&BBOX=-114.31580,%2050.84282,%20-113.85991,%2051.21237%20%20&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png    </a>
+    <br>
+    <h3> Ward Layer: </h3>
+    <a href="        http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=wards&BBOX=-114.315,50.842,-113.859,51.212&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png
+    ">
+        http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=wards&BBOX=-114.315,50.842,-113.859,51.212&STYLES=&SRS=EPSG:4326&WIDTH=700&HEIGHT=600&FORMAT=image/png
+    </a>
+
+
+</body>
+
+</html>

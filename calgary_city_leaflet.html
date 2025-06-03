@@ -1,0 +1,409 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" )="" <meta="" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGO 641 Assignment 3 Thin Web Client application using the LeafLet JavaScipt Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<!-- Include Leaflet CSS file -->
+
+
+<body>
+
+    <img src="./UCalgary-logo.svg" width="250" height="98" alt="University of Calgary">
+    <h2>University of Calgary</h2>
+    <h3>Department of Geomatics Engineering</h3>
+    <h4>ENGO 641 (Fall 2023): Design and Implementation of Geospatial Information Systems</h4>
+
+    <h1>ENGO 641 Assignment 3</h1>
+    <h4>Submitted By: AMRESH SHARMA(30233389) , ISSAC KWABENA AGYAPONG(30222691) and UJJAL BANIYA(30232571) </h2>
+    <p>This is a basic Leaflet map using an OpenStreetMap basemap.</p>
+
+    <!-- Include Leaflet JavaScript file -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@2.0.4"></script>
+    <!-- Add a style for the map container -->
+    <style>
+        #mapid {
+            height: 1000px;
+        }
+    </style>
+    <!-- Create a div element with the ID "map" -->
+    <div id="mapid"
+        class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+        tabindex="0" style="position: relative; outline-style: none;">
+        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-237px, 0px, 0px);">
+            <div class="leaflet-pane leaflet-tile-pane">
+                <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                    <div class="leaflet-tile-container leaflet-zoom-animated"
+                        style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt=""
+                            src="http://b.tile.osm.org/10/187/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(636px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/187/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(636px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/186/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(380px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/188/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(892px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/187/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(636px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/186/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(380px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/188/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(892px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/186/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(380px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/188/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(892px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/187/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(636px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/185/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(124px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/189/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1148px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/187/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(636px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/186/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(380px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/188/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(892px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/185/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(124px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/189/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1148px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/185/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(124px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/189/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1148px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/186/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(380px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/188/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(892px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/185/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(124px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/189/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1148px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/185/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(124px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/189/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1148px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/184/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-132px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/190/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1404px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/184/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-132px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/190/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1404px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/184/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-132px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/190/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1404px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/184/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-132px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/190/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1404px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/184/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-132px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/190/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1404px, 898px, 0px); opacity: 1;">
+                    </div>
+                </div>
+            </div>
+            <div class="leaflet-pane leaflet-overlay-pane"></div>
+            <div class="leaflet-pane leaflet-shadow-pane"></div>
+            <div class="leaflet-pane leaflet-marker-pane"></div>
+            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+            <div class="leaflet-pane leaflet-popup-pane"></div>
+            <div class="leaflet-proxy leaflet-zoom-animated"
+                style="transform: translate3d(47964.5px, 87666px, 0px) scale(512);"></div>
+        </div>
+        <div class="leaflet-control-container">
+            <div class="leaflet-top leaflet-left">
+                <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in"
+                        href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span
+                            aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out"
+                        role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a>
+                </div>
+            </div>
+            <div class="leaflet-top leaflet-right">
+                <div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a
+                        class="leaflet-control-layers-toggle" href="#" title="Layers" role="button"></a>
+                    <section class="leaflet-control-layers-list">
+                        <div class="leaflet-control-layers-base"><label><span><input type="radio"
+                                        class="leaflet-control-layers-selector" name="leaflet-base-layers_26"
+                                        checked="checked"><span> OpenStreetMap</span></span></label><label><span><input
+                                        type="radio" class="leaflet-control-layers-selector"
+                                        name="leaflet-base-layers_26"><span>
+                                        OpenTopoMap</span></span></label><label><span><input type="radio"
+                                        class="leaflet-control-layers-selector" name="leaflet-base-layers_26"><span>
+                                        ESRI World Imagery</span></span></label></div>
+                        <div class="leaflet-control-layers-separator"></div>
+                        <div class="leaflet-control-layers-overlays"><label><span><input type="checkbox"
+                                        class="leaflet-control-layers-selector"><span>
+                                        Districts</span></span></label><label><span><input type="checkbox"
+                                        class="leaflet-control-layers-selector"><span> C
+                                        Train</span></span></label><label><span><input type="checkbox"
+                                        class="leaflet-control-layers-selector"><span> Transit
+                                        stops</span></span></label></div>
+                    </section>
+                </div>
+            </div>
+            <div class="leaflet-bottom leaflet-left"></div>
+            <div class="leaflet-bottom leaflet-right">
+                <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com"
+                        title="A JavaScript library for interactive maps"><svg aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"
+                            class="leaflet-attribution-flag">
+                            <path fill="#4C7BE1" d="M0 0h12v4H0z"></path>
+                            <path fill="#FFD500" d="M0 4h12v3H0z"></path>
+                            <path fill="#E0BC00" d="M0 7h12v1H0z"></path>
+                        </svg> Leaflet</a> <span aria-hidden="true">|</span> © <a
+                        href="http://osm.org/copyright">OpenStreetMap</a> contributors</div>
+            </div>
+        </div>
+        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-350px, 0px, 0px);">
+            <div class="leaflet-pane leaflet-tile-pane">
+                <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                    <div class="leaflet-tile-container leaflet-zoom-animated"
+                        style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt=""
+                            src="http://b.tile.osm.org/10/187/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(848px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/187/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(848px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/186/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(592px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/188/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1104px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/187/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(848px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/186/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(592px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/188/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1104px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/186/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(592px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/188/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1104px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/187/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(848px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/185/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(336px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/189/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1360px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/187/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(848px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/186/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(592px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/188/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1104px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/185/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(336px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/189/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1360px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/185/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(336px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/189/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1360px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/186/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(592px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/188/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1104px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/185/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(336px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/189/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1360px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/185/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(336px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/189/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1360px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/184/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(80px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/190/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1616px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/184/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(80px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/190/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1616px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/184/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(80px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/190/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1616px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/184/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(80px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/190/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1616px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/184/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(80px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/190/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1616px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/183/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-176px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/191/342.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1872px, 386px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/183/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-176px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/191/341.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1872px, 130px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/183/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-176px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/191/343.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1872px, 642px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/183/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-176px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://a.tile.osm.org/10/191/340.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1872px, -126px, 0px); opacity: 1;"><img
+                            alt="" src="http://c.tile.osm.org/10/183/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(-176px, 898px, 0px); opacity: 1;"><img
+                            alt="" src="http://b.tile.osm.org/10/191/344.png" class="leaflet-tile leaflet-tile-loaded"
+                            style="width: 256px; height: 256px; transform: translate3d(1872px, 898px, 0px); opacity: 1;">
+                    </div>
+                </div>
+            </div>
+            <div class="leaflet-pane leaflet-overlay-pane"></div>
+            <div class="leaflet-pane leaflet-shadow-pane"></div>
+            <div class="leaflet-pane leaflet-marker-pane"></div>
+            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+            <div class="leaflet-pane leaflet-popup-pane"></div>
+            <div class="leaflet-proxy leaflet-zoom-animated"
+                style="transform: translate3d(47964.5px, 87666px, 0px) scale(512);"></div>
+        </div>
+        <div class="leaflet-control-container">
+            <div class="leaflet-top leaflet-left">
+                <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in"
+                        href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span
+                            aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out"
+                        role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a>
+                </div>
+            </div>
+            <div class="leaflet-top leaflet-right">
+                <div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a
+                        class="leaflet-control-layers-toggle" href="#" title="Layers" role="button"></a>
+                    <section class="leaflet-control-layers-list">
+                        <div class="leaflet-control-layers-base"><label><span><input type="radio"
+                                        class="leaflet-control-layers-selector" name="leaflet-base-layers_26"
+                                        checked="checked"><span> OpenStreetMap</span></span></label><label><span><input
+                                        type="radio" class="leaflet-control-layers-selector"
+                                        name="leaflet-base-layers_26"><span>
+                                        OpenTopoMap</span></span></label><label><span><input type="radio"
+                                        class="leaflet-control-layers-selector" name="leaflet-base-layers_26"><span>
+                                        ESRI World Imagery</span></span></label></div>
+                        <div class="leaflet-control-layers-separator"></div>
+                        <div class="leaflet-control-layers-overlays"><label><span><input type="checkbox"
+                                        class="leaflet-control-layers-selector"><span> Wards</span></span></label><label><span><input type="checkbox"
+                                        class="leaflet-control-layers-selector"><span> Roads</span></span></label><label><span><input type="checkbox"
+                                        class="leaflet-control-layers-selector"><span> Schools</span></span></label></div>
+                    </section>
+                </div>
+            </div>
+            <div class="leaflet-bottom leaflet-left"></div>
+            <div class="leaflet-bottom leaflet-right">
+                <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com"
+                        title="A JavaScript library for interactive maps"><svg aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"
+                            class="leaflet-attribution-flag">
+                            <path fill="#4C7BE1" d="M0 0h12v4H0z"></path>
+                            <path fill="#FFD500" d="M0 4h12v3H0z"></path>
+                            <path fill="#E0BC00" d="M0 7h12v1H0z"></path>
+                        </svg> Leaflet</a> <span aria-hidden="true">|</span> © <a
+                        href="http://osm.org/copyright">OpenStreetMap</a> contributors</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create a script tag to initialize the map -->
+    <script>
+
+        // initializing the map
+        var map = L.map('mapid', { crs: L.CRS.EPSG3857 }).setView([51.081, -114.131], 10); // Set the inital view (center and zoom level)
+
+
+
+        // Adding base maps
+        // define osm laver - - Basemap 1
+        var osmmap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        });
+        // define topomap layer - - Basemap 2
+        var topomap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 17,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' +
+                'contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: ' +
+                '&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+
+        });
+
+        // Basemap 3
+        var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' });
+
+
+
+        // Basemap 4 -- ESRI Nat Geo Worldmap
+        var esriNATmap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+            maxZoom: 16
+        });
+
+
+        // Basemap 5 -- light mode
+        var lightmap = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+        });
+
+        // Create a base maps object
+        var baseMaps = {
+            "OpenStreetMap": osmmap,
+            "OpenTopoMap": topomap,
+            "ESRI World Imagery": Esri_WorldImagery,
+            "ESRI Nat Geo WorldMap": esriNATmap,
+            "CartoDB Postiron": lightmap
+        };
+
+        // ------ WMS from Part 1 -------------
+
+
+        var wms = "http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map";
+
+
+        // Adding the polygon map from WMS from part 1
+        var wards = L.tileLayer.wms(wms, {
+            layers: 'wards',
+            format: 'image/png',
+            transparent: true
+        });
+
+        // Adding the line map from WMS from part 1
+        var roads = L.tileLayer.wms(wms, {
+            layers: 'roads',
+            format: 'image/png',
+            transparent: true
+        });
+
+        // Adding the point map from WMS from part 1
+        var schools = L.tileLayer.wms(wms, {
+            layers: 'schools',
+            format: 'image/png',
+            transparent: true
+        });
+
+        var overlays = {
+            "wards": wards,
+            "roads": roads,
+            "schools": schools
+        };
+
+        // //Initailize the map
+        // var map = L.map('mapid').setView([51.081, -114.131], 10);
+
+        //Add the layers control to map
+        L.control.layers(baseMaps, overlays).addTo(map);
+        osmmap.addTo(map);
+
+    </script>
+
+
+</body>
+
+</html>

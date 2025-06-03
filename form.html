@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Road Segment Names</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #0077b6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 80px; /* Adjust the height as needed */
+        }
+        #results {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #result {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .road-segment {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #0077b6;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="UCalgary-logo.svg" alt="University Logo">
+        <h1>Display the Road Segment Names</h1>
+    </div>
+    <div id="results">
+        <p><strong>About:</strong> This web service shows the road segment Names of selected Municipal. Data is sourced from <a href="https://maps.canada.ca/czs/index-en.html" title="Website">CanVec(2023)</a>.</p>
+    </div>
+    <form action="http://10.41.80.45:8080/wmaps/engo451/2023/u52/query.py" method="post">
+        <label for="direction">Municipal:</label>
+        <select id="direction" name="direction" required>
+            <option value="Northeast">Northeast</option>
+            <option value="Northwest">Northwest</option>
+            <option value="Southeast">Southeast</option>
+            <option value="Southwest">Southwest</option>
+        </select><br><br>
+        <label for="limit">Limit:</label>
+        <select id="limit" name="limit" required>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+        </select><br><br>
+        <input type="submit" value="Search">
+    </form>
+    <div id="result">
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const resultsDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const direction = formData.get('direction');
+            const limit = formData.get('limit');
+
+            try {
+                const response = await fetch(`http://10.41.80.45:8080/wmaps/engo451/2023/u52/query.py?direction=${direction}&limit=${limit}`);
+                const data = await response.text();
+                const roadSegments = data.split(',');
+                const roadSegmentList = roadSegments.map(segment => `<div class="road-segment">${segment.trim()}</div>`).join('');
+                resultsDiv.innerHTML = `<p><strong>${limit} Road Segment Names of ${direction}</strong></p>${roadSegmentList}`;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                resultsDiv.innerHTML = '<p>Error fetching data.</p>';
+            }
+        });
+    </script>
+        <div id="results">
+        <p>Submitted by : Amresh Sharma, Issac Kwabena Agyapong, Ujjal Baniya, 2023. University of Calgary, Department of Geomatics Engineering</p>
+    </div>
+</body>
+</html>

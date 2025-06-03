@@ -1,0 +1,116 @@
+MAP
+
+NAME calgary_city_wms_db		
+STATUS ON
+SIZE 500 500
+EXTENT -114.31580 50.84282 -113.85991 51.21237 
+UNITS dd
+IMAGECOLOR 200 200 200
+
+PROJECTION
+	"init=epsg:4326"
+END
+
+WEB
+	IMAGEPATH "C:/ms4w/Apache/htdocs/tmp"
+	IMAGEURL "/tmp/"
+	METADATA 
+		"wms_title" "WMS Server (test)"
+		"wms_onlineresource" "http://10.41.80.45:8080/cgi-bin/mapserv.exe?map=/ms4w/Apache/htdocs/wmaps/engo451/2023/u52/calgary_city_wms_db.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+		"wms_srs" "EPSG:3857 EPSG:4326" 
+		"ows_enable_request" "*"
+	END
+END
+
+# LAYER DEFINITIONS  
+
+   LAYER
+    NAME "wards"
+    TYPE POLYGON
+	
+	CONNECTIONTYPE postgis
+	CONNECTION "host=10.41.80.45 port=5432 user=u52 password=8465 dbname=u52db"
+	DATA "geom FROM wards"
+
+      METADATA
+        'wms_title' 'wards'
+    END
+    STATUS ON
+    TRANSPARENCY 100
+    PROJECTION
+    	'init=epsg:4326'
+    END
+	CLASS
+       NAME 'wards' 
+       STYLE
+         SYMBOL 0 
+         SIZE 2 
+         OUTLINECOLOR 0 0 0
+         COLOR 255 255 127
+       END
+    END
+END
+
+#-------
+   LAYER
+    NAME 'roads'
+    TYPE LINE
+
+	CONNECTIONTYPE postgis
+	CONNECTION "host=10.41.80.45 port=5432 user=u52 password=8465 dbname=u52db"
+	DATA "geom FROM roads"
+
+        METADATA
+      'wms_title' 'roads'
+    END
+    STATUS ON
+    PROJECTION
+    	'init=epsg:4326'
+    END
+	CLASS
+       NAME 'roads' 
+       STYLE
+         SYMBOL 0 
+         SIZE 2 
+         OUTLINECOLOR 255 0 0
+         COLOR 255 0 0 
+       END
+    END
+  END
+#-------
+   LAYER
+    NAME 'schools'
+    TYPE POINT
+
+	CONNECTIONTYPE postgis
+	CONNECTION "host=10.41.80.45 port=5432 user=u52 password=8465 dbname=u52db"
+	DATA "geom FROM schools"
+
+    METADATA
+      'wms_title' 'schools'
+    END
+    STATUS ON
+    PROJECTION
+    	'init=epsg:4326'
+    END
+	CLASS
+       NAME 'schools' 
+       STYLE
+         SYMBOL 'CIRCLE' 
+         SIZE 5 
+         OUTLINECOLOR 0 0 0
+         COLOR 45 220 182
+       END
+    END
+  END
+
+ #Circle symbol
+    SYMBOL
+        NAME 'CIRCLE'
+        TYPE ellipse
+        FILLED true
+        POINTS
+          1 1
+        END
+    END 
+END
